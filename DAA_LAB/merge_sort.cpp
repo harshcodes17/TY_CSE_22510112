@@ -8,6 +8,7 @@ void merge(vector<int>& v,int l,int r,int m){
     int n2=r-m;
     vector<int>left(n1);
     vector<int>right(n2);
+    //using extra space to store the left and right subarrays
     for(int i=0;i<n1;i++){
         left[i]=v[l+i];
     }
@@ -16,7 +17,7 @@ void merge(vector<int>& v,int l,int r,int m){
     }
     int i=0,j=0,k=l;
     while(i<n1 && j<n2){
-        if(left[i]<=right[j]){
+        if(left[i]<=right[j]){ //comparing and sorting the elements
             v[k]=left[i];
             i++;
         }
@@ -26,12 +27,12 @@ void merge(vector<int>& v,int l,int r,int m){
         }
         k++;
     }
-    while(i<n1){
+    while(i<n1){ //adding remaining elements
         v[k]=left[i];
         i++;
         k++;
     }
-    while(j<n2){
+    while(j<n2){ //adding remaining elements
         v[k]=right[j];
         j++;
         k++;
@@ -42,9 +43,9 @@ void merge(vector<int>& v,int l,int r,int m){
 void merge_sort(vector<int>& v,int l,int r){
     if(l<r){
         int m=l+(r-l)/2;
-        merge_sort(v,l,m);
-        merge_sort(v,m+1,r);
-        merge(v,l,r,m);
+        merge_sort(v,l,m);// left half
+        merge_sort(v,m+1,r);// right half
+        merge(v,l,r,m);// merging the two halves
     }
 }
 
@@ -72,4 +73,4 @@ int main(){
 
 }
 //Time Complexity: O(nlogn)
-// Space Complexity: O(n)
+//Space Complexity: O(n) + recusrive stack space O(logn)
