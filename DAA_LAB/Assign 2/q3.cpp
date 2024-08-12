@@ -21,7 +21,7 @@ void moveDisk(int n, char source, char destination, char auxiliary) {
 
 int main() {
     int n; // Number of disks
-    cout << "Enter the number of disks: ";
+    // cout << "Enter the number of disks: ";
     cin >> n;
 
     // Call the moveDisk function

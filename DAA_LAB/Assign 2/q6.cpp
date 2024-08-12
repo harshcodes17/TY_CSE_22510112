@@ -3,16 +3,16 @@
 using namespace std;
 
 int main(){
-    cout<<"Enter the number of elements in the sorted array: ";
+    // cout<<"Enter the number of elements in the sorted array: ";
     int n;
     cin>>n;
     vector<int>v(n);
-    cout<<"Enter the elements of the sorted array: ";
+    // cout<<"Enter the elements of the sorted array: ";
     for(int i=0;i<n;i++){
         cin>>v[i];
     }
     int find_element;
-    cout<<"Enter the element to be found: ";
+    // cout<<"Enter the element to be found: ";
     cin>>find_element;
     int left = 0;
     int right = n-1;

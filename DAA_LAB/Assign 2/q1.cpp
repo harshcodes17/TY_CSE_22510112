@@ -4,10 +4,10 @@ using namespace std;
 
 int main(){
     int n;
-    cout << "Enter the number of days: ";
+    // cout << "Enter the number of days: ";
     cin>>n;
     vector<int>v(n);
-    cout << "Enter the working hour per day: ";
+    // cout << "Enter the working hour per day: ";
     for(int i=0;i<n;i++){
         cin>>v[i];
     }
