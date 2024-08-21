@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fictional Online Bookstore</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Fictional Online Bookstore</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Books</a></li>
+                <li><a href="#">Contact</a></li>
+                <li>Cart: <span id="cart-count">0</span></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="featured-books">
+        <h2>Featured Books</h2>
+        <div class="book">
+            <img src="./images/cover1.png" alt="Book Cover 1">
+            <h3>Harry Porter:Order of Phoenix</h3>
+            <p>J K Rolling</p>
+        </div>
+        <div class="book">
+            <img src="./images/cover2.png" alt="Book Cover 2">
+            <h3>Harry Porter:Soccere's Stone</h3>
+            <p>J K Rolling</p>
+        </div>
+    </section>
+
+    <section id="all-books">
+        <h2>All Books</h2>
+        <div class="book-grid">
+            <div class="book">
+                <img src="./images/cover1.png" alt="Book Cover 1">
+                <h3>Harry Porter:Order of Phoenix</h3>
+                <p>J K Rolling</p>
+                <button onclick="addToCart()">Add to Cart</button>
+            </div>
+            <div class="book">
+                <img src="./images/cover2.png" alt="Book Cover 2">
+                <h3>Harry Porter:Soccere's Stone</h3>
+                <p>J K Rolling</p>
+                <button onclick="addToCart()">Add to Cart</button>
+            </div>
+            
+        </div>
+    </section>
+</body>
+</html>
