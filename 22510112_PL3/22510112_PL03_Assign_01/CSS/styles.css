@@ -28,7 +28,7 @@
     font-style: italic;
 }
 body {
-  background-image: url('/bg.png');
+  background-image: url('/22510112_PL3/22510112_PL03_Assign_01/images/bg.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -46,6 +46,7 @@ body {
     /* flex-direction: row; */  
     margin-top: 50px;
     border-radius: 15px; 
+    /* outline-color: black; */
 
   }
   
