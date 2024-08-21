@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Calistoga&family=Fjalla+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Calistoga&family=Fjalla+One&display=swap');
+
+
+
+
+.arvo-regular {
+    font-family: "Arvo", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+  
+.arvo-bold {
+    font-family: "Arvo", serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.arvo-regular-italic {
+    font-family: "Arvo", serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.arvo-bold-italic {
+    font-family: "Arvo", serif;
+    font-weight: 700;
+    font-style: italic;
+}
+body {
+  background-image: url('/bg.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  font-family: "Arvo", serif;
+}
+
+.header {
+    display: flex;
+    padding: 20px;
+    width: 800px;
+    margin: 0 auto;
+    background-color: #3f98f6;
+    justify-content: center;
+    align-items: center;
+    /* flex-direction: row; */  
+    margin-top: 50px;
+    border-radius: 15px; 
+
+  }
+  
+
+  .achieve {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+  }
+
+  .skills {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+  }
+
+  .study {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+  }
+
+  .pages {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* flex-direction: column; */
+    margin-top: 50px;
+  }
+
+
+  table {
+    border-collapse: collapse;
+    /* border: 1px solid black; */
+  }
+
+  td,
+  th {
+    border-collapse: collapse;
+    /* border: 1px solid black; */
+    padding: 8px;
+  }
+
+  .calistoga-regular {
+    font-family: "Calistoga", serif;
+    font-weight: 200;
+
+  }
+
+  .button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s ease;
+  }
+
+  .button:hover {
+    background-color: #0056b3;
+  }

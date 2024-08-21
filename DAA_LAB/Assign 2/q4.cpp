@@ -1,31 +1,19 @@
-#include <iostream>
-#include <algorithm>
+#include <bits/stdc++.h>
 
 using namespace std;
 
-int main() {
-    int X, Y, s, T;
-    cin >> X >> Y >> s >> T;
-
-    int count = 0;
-
-    // Iterate over all possible positions (a, b) that the frog can reach in T seconds
-    for (int a = 0; a <= T; ++a) {
-        for (int b = 0; b <= T; ++b) {
-            if (a + b <= T) {
-                int frogX = a; // The x-coordinate of the frog
-                int frogY = b; // The y-coordinate of the frog
-                
-                // Check if the frog's position lies inside the square
-                if (frogX >= X && frogX <= X + s && frogY >= Y && frogY <= Y + s) {
-                    ++count;
-                }
+int main(){
+    int x,y,s,t;
+    cin>>x>>y>>s>>t;
+    int ans = 0;
+    for(int i=0;i<=x+s;i++){
+        for(int j=y;j<=y+s;j++){
+            if(i+j<=t){
+                ans++;
             }
         }
     }
-
-    // Output the result
-    cout << count << endl;
-
+    cout<<ans<<endl;
     return 0;
+
 }
