@@ -9,9 +9,10 @@ void merge(vector<int>& v1, int m, vector<int>& v2, int n) {
     int k = m + n - 1;
 
     while (i >= 0 && j >= 0) {
-        if (v1[i] > v2[j]) {
+        if(v1[i] > v2[j]){
             v1[k--] = v1[i--];
-        } else {
+        }
+        else{
             v1[k--] = v2[j--];
         }
     }
@@ -22,8 +23,10 @@ void merge(vector<int>& v1, int m, vector<int>& v2, int n) {
 }
 
 int main() {
-    vector<int> v1 = {1, 3, 5, 0, 0, 0}; // v1 has extra space for v2 elements
-    vector<int> v2 = {2, 4, 6};
+
+    vector<int> v1 = {14,15,16}; // v1 has extra space for v2 elements
+    v1.resize(6);
+    vector<int> v2 = {14,16,19};
     int m = 3; // Number of valid elements in v1
     int n = 3; // Number of elements in v2
 
