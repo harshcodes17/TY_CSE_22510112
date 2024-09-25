@@ -1,0 +1,68 @@
+h1{
+    text-align: center;
+    color: rgb(11, 138, 176);
+    
+}
+/* src/App.css */
+.App {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .task-input {
+    margin-bottom: 20px;
+  }
+  
+  .task-input input {
+    padding: 10px;
+    width: 70%;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .task-input button {
+    padding: 10px;
+    border: none;
+    background-color: #28a745;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .task-input button:hover {
+    background-color: #218838;
+  }
+  
+  .task-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .task-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .task-list li.completed span {
+    text-decoration: line-through;
+    color: #888;
+  }
+  
+  .task-list li button {
+    border: none;
+    background-color: #dc3545;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .task-list li button:hover {
+    background-color: #c82333;
+  }
