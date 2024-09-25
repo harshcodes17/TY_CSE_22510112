@@ -1,40 +1,53 @@
 import React from 'react';
-import { Card, CardMedia, CardContent, Typography, Button, TextField } from '@mui/material';
+import Container from '@mui/material/Container';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
+import TextField from '@mui/material/TextField';
 
 const Cart = ({ cart, removeFromCart, updateQuantity }) => {
   const totalPrice = cart.reduce((total, item) => total + item.price * item.quantity, 0);
 
   return (
-    <div style={{ padding: '16px' }}>
-      {cart.map(item => (
-        <Card key={item.id} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
-          <CardMedia
-            component="img"
-            style={{ width: '100px', height: '100px' }}
-            image={item.image}
-            alt={item.name}
-          />
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              {item.name}
-            </Typography>
-            <TextField
-              type="number"
-              value={item.quantity}
-              onChange={(e) => updateQuantity(item.id, parseInt(e.target.value))}
-              style={{ width: '60px' }}
-            />
-            <Typography variant="body2" color="text.secondary">
-              ${item.price * item.quantity}
-            </Typography>
-            <Button onClick={() => removeFromCart(item.id)} variant="contained" color="secondary">
-              Remove
-            </Button>
-          </CardContent>
-        </Card>
-      ))}
-      <Typography variant="h5">Total: ${totalPrice}</Typography>
-    </div>
+    <Container>
+      <Box my={4}>
+        <Typography variant="h4" component="h1" gutterBottom>
+          Shopping Cart
+        </Typography>
+        {cart.map(item => (
+          <Grid container spacing={2} key={item.id} alignItems="center">
+            <Grid item xs={12} sm={4}>
+              <img src={item.image} alt={item.name} style={{ width: '100%' }} />
+            </Grid>
+            <Grid item xs={12} sm={4}>
+              <Typography variant="h6" component="h2">
+                {item.name}
+              </Typography>
+              <Typography variant="body1" component="p">
+                ${item.price}
+              </Typography>
+            </Grid>
+            <Grid item xs={12} sm={2}>
+              <TextField
+                type="number"
+                value={item.quantity}
+                onChange={(e) => updateQuantity(item.id, parseInt(e.target.value))}
+                inputProps={{ min: 1 }}
+              />
+            </Grid>
+            <Grid item xs={12} sm={2}>
+              <Button variant="contained" color="secondary" onClick={() => removeFromCart(item.id)}>
+                Remove
+              </Button>
+            </Grid>
+          </Grid>
+        ))}
+        <Typography variant="h5" component="h2" gutterBottom>
+          Total: ${totalPrice}
+        </Typography>
+      </Box>
+    </Container>
   );
 };
 
