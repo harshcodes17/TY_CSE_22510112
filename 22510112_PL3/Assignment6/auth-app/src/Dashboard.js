@@ -1,29 +1,21 @@
 import React from 'react';
-import { Button, Container, Typography } from '@mui/material';
-import { useAuth } from './AuthContext';
 import { useNavigate } from 'react-router-dom';
+import { useAuthContext } from './AuthContext'; // Import useAuthContext
 
 const Dashboard = () => {
-  const { logout } = useAuth();
-  const navigate = useNavigate();
+  const { logout } = useAuthContext(); // Use useAuthContext
+  const navigate = useNavigate(); // Use useNavigate hook
 
   const handleLogout = () => {
     logout();
-    navigate('/');
+    navigate('/'); // Navigate to sign-in page
   };
 
   return (
-    <Container maxWidth="sm">
-      <Typography variant="h4" component="h1" gutterBottom>
-        Dashboard
-      </Typography>
-      <Typography variant="body1" gutterBottom>
-        Welcome to your dashboard!
-      </Typography>
-      <Button variant="contained" color="secondary" onClick={handleLogout}>
-        Logout
-      </Button>
-    </Container>
+    <div>
+      <h1>Welcome to the Dashboard</h1>
+      <button onClick={handleLogout}>Logout</button>
+    </div>
   );
 };
 
