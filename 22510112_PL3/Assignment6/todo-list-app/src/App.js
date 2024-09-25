@@ -1,16 +1,22 @@
-// src/App.js
 import React, { useState } from 'react';
-import './index.css';
+import { Container, TextField, Button, Typography, List, ListItem, ListItemText, IconButton } from '@mui/material';
+// import DeleteIcon from '@mui/icons-material/Delete';
 
-function App() {
+const App = () => {
   const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState('');
+  const [filter, setFilter] = useState('all');
 
   const addTask = () => {
-    if (newTask.trim()) {
+    if (newTask.trim() !== '') {
       setTasks([...tasks, { text: newTask, completed: false }]);
       setNewTask('');
     }
+  };
+
+  const removeTask = (index) => {
+    const updatedTasks = tasks.filter((_, i) => i !== index);
+    setTasks(updatedTasks);
   };
 
   const toggleTaskCompletion = (index) => {
@@ -20,53 +26,54 @@ function App() {
     setTasks(updatedTasks);
   };
 
-  const removeTask = (index) => {
-    const updatedTasks = tasks.filter((_, i) => i !== index);
-    setTasks(updatedTasks);
-  };
+  const filteredTasks = tasks.filter((task) => {
+    if (filter === 'all') return true;
+    if (filter === 'completed') return task.completed;
+    if (filter === 'active') return !task.completed;
+    return true;
+  });
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="bg-white p-6 rounded shadow-md w-full max-w-md">
-        <h1 className="text-2xl font-bold mb-4">To-Do List</h1>
-        <div className="flex mb-4">
-          <input
-            type="text"
-            value={newTask}
-            onChange={(e) => setNewTask(e.target.value)}
-            placeholder="Add a new task"
-            className="flex-grow p-2 border border-gray-300 rounded-l"
-          />
-          <button
-            onClick={addTask}
-            className="p-2 bg-green-500 text-white rounded-r hover:bg-green-600"
-          >
-            Add
-          </button>
-        </div>
-        <ul className="list-none p-0">
-          {tasks.map((task, index) => (
-            <li
-              key={index}
-              className={`flex justify-between items-center p-2 border-b border-gray-300 ${
-                task.completed ? 'line-through text-gray-500' : ''
-              }`}
-            >
-              <span onClick={() => toggleTaskCompletion(index)} className="cursor-pointer">
-                {task.text}
-              </span>
-              <button
-                onClick={() => removeTask(index)}
-                className="ml-4 p-2 bg-red-500 text-white rounded hover:bg-red-600"
-              >
-                Remove
-              </button>
-            </li>
-          ))}
-        </ul>
+    <Container maxWidth="sm" style={{ marginTop: '2rem' }}>
+      <Typography variant="h4" component="h1" gutterBottom>
+        To-Do List
+      </Typography>
+      <div style={{ display: 'flex', marginBottom: '1rem' }}>
+        <TextField
+          label="Add a new task"
+          variant="outlined"
+          fullWidth
+          value={newTask}
+          onChange={(e) => setNewTask(e.target.value)}
+        />
+        <Button onClick={addTask} variant="contained" color="primary" style={{ marginLeft: '1rem' }}>
+          Add
+        </Button>
       </div>
-    </div>
+      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1rem' }}>
+        <Button onClick={() => setFilter('all')} variant={filter === 'all' ? 'contained' : 'outlined'}>
+          All
+        </Button>
+        <Button onClick={() => setFilter('active')} variant={filter === 'active' ? 'contained' : 'outlined'}>
+          Active
+        </Button>
+        <Button onClick={() => setFilter('completed')} variant={filter === 'completed' ? 'contained' : 'outlined'}>
+          Completed
+        </Button>
+      </div>
+      <List>
+        {filteredTasks.map((task, index) => (
+          <ListItem key={index} button onClick={() => toggleTaskCompletion(index)}>
+            <ListItemText
+              primary={task.text}
+              style={{ textDecoration: task.completed ? 'line-through' : 'none' }}
+            />
+            
+          </ListItem>
+        ))}
+      </List>
+    </Container>
   );
-}
+};
 
 export default App;
